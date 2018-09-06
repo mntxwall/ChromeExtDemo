@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "My Cool Extension",
+  "version": "0.1",
+  "content_scripts": [
+  {
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": ["content.js"]
+  }
+],
+"browser_action": {
+  "default_icon": "images/ok.png",
+  "default_popup": "popup.html"
+
+},
+"background": {
+  "scripts": ["background.js"]
+},
+"permissions":[
+  "cookies",
+  "http://*/*", "https://*/*"
+]
+}
