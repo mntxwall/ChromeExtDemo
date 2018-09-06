@@ -4,10 +4,10 @@
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
       if( request.message === "clicked_browser_action" ) {
-        //var firstHref = $("a[href^='http']").eq(0).attr("href");        
+        //var firstHref = $("a[href^='http']").eq(0).attr("href");
         console.log("click event Cookies");
-		var a = document.getElementById("div1")
-		console.log(a.getElementsByTagName("li"));
+		//var a = document.getElementById("div1")
+		//console.log(a.getElementsByTagName("li"));
 
        // console.log(document.getElementById("p1").innerText);
       }
@@ -29,8 +29,33 @@ chrome.runtime.onMessage.addListener(
           });
           console.log("answer:Madame... Bovary");
         }
-          
+
       });
+    }
+    else if(request.message === "background"){
+
+        console.log("fire alarm");
+        var port = chrome.runtime.connect({name: "alarm_test"});
+        //port.postMessage({message: "start alarm test"});
+        port.postMessage({message: "download"});
+
+
+
+
+
+        //port.postMessage({message: "start alarm test"});
+        /*
+        port.onMessage.addListener(function(msg) {
+          if (msg.message == "JobDone"){
+            console.log("alarmFinished");
+            port.postMessage({message: "start alarm test"});
+
+          }
+        });*/
+
+
+
+
     }
   }
   );

@@ -11,10 +11,10 @@
   }
 ],
 "icons":{
-  "16":"idea16.png",
-  "32":"idea32.png",
-  "64":"idea64.png",
-  "128":"idea128.png"
+  "16":"images/idea16.png",
+  "32":"images/idea32.png",
+  "64":"images/idea64.png",
+  "128":"images/idea128.png"
 },
 "browser_action": {
   "default_icon": "images/ok.png",
@@ -26,6 +26,9 @@
 },
 "permissions":[
   "cookies",
+  "alarms",
+  "tabs",
+  "downloads",
   "http://*/*", "https://*/*"
 ]
 }
