@@ -10,6 +10,12 @@
     "js": ["content.js"]
   }
 ],
+"icons":{
+  "16":"idea16.png",
+  "32":"idea32.png",
+  "64":"idea64.png",
+  "128":"idea128.png"
+},
 "browser_action": {
   "default_icon": "images/ok.png",
   "default_popup": "popup.html"
