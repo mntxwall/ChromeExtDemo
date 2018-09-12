@@ -1,6 +1,11 @@
 // content.js
 
+chrome.runtime.onConnect.addListener(function(port) {
 
+
+    console.log("Message Change from background");
+    port.disconnect()
+});
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
       if( request.message === "clicked_browser_action" ) {
@@ -57,6 +62,11 @@ chrome.runtime.onMessage.addListener(
 
 
     }
+    else if (request.message == "valueChange"){
+
+        console.log("storagechange")
+
+      }
   }
   );
 

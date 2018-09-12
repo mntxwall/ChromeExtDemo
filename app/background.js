@@ -9,8 +9,22 @@ chrome.runtime.onMessage.addListener(
   }
 );
 
+chrome.storage.onChanged.addListener(function (changes, areaName) {
+
+    console.log(changes.favoriteColor);
+    console.log(areaName);
+
+    //var port = chrome.runtime.connect({name: "helloStorage"});
+    chrome.runtime.sendMessage({message: "valueChange"}, function(response) {
+        console.log(response);
+    });
+
+});
+
 chrome.runtime.onConnect.addListener(function(port) {
   console.log(port);
+
+
   port.onMessage.addListener(function(msg) {
     if (msg.message == "start alarm test"){
 
@@ -20,7 +34,7 @@ chrome.runtime.onConnect.addListener(function(port) {
           chrome.tabs.create({
             "url": "http://www.baidu.com",
             "active": false
-          }, function (tab) {
+          }, function (tab) {cd
             //console.log(tab);
             setTimeout(function () {
               chrome.tabs.remove(tab.id)

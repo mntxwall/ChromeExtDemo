@@ -2,6 +2,10 @@
   "manifest_version": 2,
   "name": "My Cool Extension",
   "version": "0.1",
+  "options_ui": {
+    "page": "option.html",
+    "open_in_tab": false
+  },
   "content_scripts": [
   {
     "matches": [
@@ -22,13 +26,15 @@
 
 },
 "background": {
-  "scripts": ["background.js"]
+  "scripts": ["background.js"],
+  "persistent": false
 },
 "permissions":[
   "cookies",
   "alarms",
   "tabs",
   "downloads",
+  "storage",
   "http://*/*", "https://*/*"
 ]
 }

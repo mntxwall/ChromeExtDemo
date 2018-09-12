@@ -1,5 +1,11 @@
 (function(){
 
+    document.addEventListener("DOMContentLoaded", function(event) {
+        console.log("DOM fully loaded and parsed");
+
+
+    });
+
     document.getElementById("btn1").addEventListener("click", function(){
 
 		console.log("Hello");
@@ -10,6 +16,9 @@
             console.log(tab);
         });*/
 
+        chrome.storage.sync.get(['favoriteColor'], function(result) {
+            console.log(result);
+        });
 
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 			var activeTab = tabs[0];
